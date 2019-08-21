@@ -1,0 +1,223 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    overflow: hidden;
+    background: url(428319_buildings-png-hd.png) no-repeat;
+    background-size: cover;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.274);
+    position: absolute;
+    top: 0;
+}
+
+.weather {
+    position: absolute;
+    animation: moving-cloud 20s infinite linear;
+}
+
+@keyframes moving-cloud {
+
+    50% {
+        left: 50%;
+        opacity: 0;
+    }
+
+}
+
+.weather:nth-child(1) {
+    left: 80%;
+    animation-delay: 0.3s;
+}
+
+.weather:nth-child(2) {
+    left: 70%;
+    top: 10%;
+    animation-delay: 0.5s;
+}
+
+.weather:nth-child(3) {
+    left: 40%;
+    animation-delay: 0.7s;
+    animation-direction: alternate-reverse;
+}
+
+.weather:nth-child(4) {
+    left: 20%;
+    top: 20%;
+    animation-delay: 0.9s;
+}
+
+.weather:nth-child(5) {
+    left: 25%;
+    animation-delay: 0.11s;
+}
+
+.weather:nth-child(6) {
+    top: 10%;
+    left: -5%;
+    animation-delay: 0.13s;
+}
+
+.cloud {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background: rgb(229, 226, 226);
+    border-radius: 50%;
+    top: 20px;
+    left: 50px;
+    box-shadow: 0 2px 4px 2px rgb(201, 196, 196), inset 0 20px 20px -20px rgb(133, 126, 126);
+}
+
+
+.cloud::before {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    left: -40px;
+    top: 20px;
+    background: rgb(229, 226, 226);
+    border-radius: 50%;
+    box-shadow: -5px 2px 4px rgb(201, 196, 196), inset 20px -5px 20px -10px rgb(133, 126, 126);
+}
+
+.cloud::after {
+    content: '';
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    right: -40px;
+    top: 15px;
+    background: rgb(229, 226, 226);
+    border-radius: 50%;
+    box-shadow: 8px 5px 10px rgb(201, 196, 196), inset -20px -5px 20px -10px rgb(133, 126, 126);
+}
+
+.bird {
+    width: 300px;
+    height: 300px;
+    background: #4ca4ec;
+    margin: 10px auto;
+    border-radius: 80% 70% 80% 0;
+    transform: scale(0.4) translate(-480%, 90%) rotateZ(20deg);
+    transform-origin: top left;
+    z-index: 2;
+    border: 2px solid rgb(122, 118, 118);
+    box-shadow: inset 2px 5px 20px 5px rgb(59, 106, 206);
+    animation: bird-flying 3s infinite;
+}
+
+@keyframes bird-flying {
+    0% {
+    }
+
+    50% {
+        transform: scale(0.4) translateX(100%,10%) rotateY(30deg);
+    }
+
+    80% {
+        transform: scale(0.8) translate(100%, 100%) rotate(40deg);
+        animation-delay: 2s;
+    }
+
+    100% {
+        transform: scale(0.4) translate(650%, 90%) rotateZ(-20deg);
+    }
+}
+
+
+
+.bird::before {
+    content: '';
+    position: absolute;
+    width: 220px;
+    height: 200px;
+    background: #b3cbf3;
+    border-radius: 95% 50% 90% 0;
+    transform-origin: center right;
+    top: 120px;
+    right: 200px;
+    transform: rotate(50deg);
+    border: 2px solid rgb(122, 118, 118);
+    box-shadow: inset 0 5px 20px 20px rgb(58, 159, 218);
+    animation: fly 0.15s infinite linear;
+}
+
+@keyframes fly {
+    50% {
+        transform: rotateY(180deg);
+    }
+}
+
+.bird::after {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border: 2px solid transparent;
+    border-left: 50px solid #e9c41e;
+    border-bottom: 50px solid transparent;
+    top: 40px;
+    right: -2px;
+    transform: rotate(102deg);
+    transform-origin: center;
+}
+
+.eye {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: rgb(240, 212, 212);
+    border-radius: 50%;
+    transform: translate(200px, 40px);
+    border: 2px solid rgb(122, 118, 118);
+    animation: eye-anime 2s infinite ease-in;
+    animation-delay: 2s;
+}
+
+@keyframes eye-anime {
+    0% {}
+
+    50% {
+        background: rgb(238, 152, 181);
+    }
+
+    100% {}
+}
+
+.eye::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    bottom: 10px;
+    right: 0;
+    background: #000;
+}
+
+.bird-body {
+    animation: move-bird 0.2s infinte;
+}
+
+@keyframes move-bird {
+    from {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+
+    to {
+        display: none;
+    }
+}
